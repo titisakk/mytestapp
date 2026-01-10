@@ -30,31 +30,18 @@ class HomeScreen extends StatelessWidget {
         backgroundColor: const Color.fromARGB(255, 167, 173, 178),
         centerTitle: true,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
+      body: Center(child:Stack(
         children: [
-          SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(width: 20),
-              Container(height: 100, width: 100, color: Colors.pink),
-              SizedBox(width: 20),
-              Container(height: 100, width: 100, color: Colors.yellow),
-              SizedBox(width: 20),
-              Container(height: 100, width: 100, color: Colors.blue),
-            ],),
-            SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              SizedBox(width: 20),
-              Expanded(flex: 1,child :Container(height: 100, color: Colors.cyan)),
-              SizedBox(width: 20),
-              Expanded(flex: 2,child :Container(height: 100, color: Colors.black)),
-              SizedBox(width: 20)
-            ],
-          )
-        ]));
+          Container(width: 120, height: 300, decoration: BoxDecoration(color: Colors.black,borderRadius: BorderRadius.circular(40)),),
+          Positioned(top: 10,right:20 ,child: 
+          Container(width: 80, height: 80, decoration:BoxDecoration(color:Colors.red, shape: BoxShape.circle))),
+
+          Positioned(right:20,bottom: 110 ,child: 
+          Container(width: 80, height: 80, decoration:BoxDecoration(color:Colors.yellow, shape: BoxShape.circle))),
+
+          Positioned(right: 20,bottom: 20,child: 
+          Container(width: 80, height: 80, decoration:BoxDecoration(color:Colors.green, shape: BoxShape.circle))),
+        ]
+        )));
   }
 }
