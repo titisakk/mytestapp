@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mytestapp/component/text_card.dart';
+import 'package:mytestapp/component/like_card.dart';
+import 'package:mytestapp/component/profile_card.dart';
+import 'package:mytestapp/screen/content_screen.dart';
 
 class GreetingScreen extends StatelessWidget {
   final String name;
@@ -15,14 +17,17 @@ class GreetingScreen extends StatelessWidget {
       body: Center(
         child: Column(mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            TextCard(text: "Good Afternoon", color: Colors.yellow,),
+           ProfileCard(name: "Thitisak Phanthip",imagePath: 'assets/download.jpg',id: '660710593',),
             SizedBox(height: 10,),
-           TextCard(text: name, color: Colors.brown,),
-            SizedBox(height: 10),
-            TextCard(text: "Good luck have fun", color: Colors.blue),
+            ElevatedButton(onPressed: () {
+                Navigator.push(
+                  context, MaterialPageRoute(builder: (BuildContext context) =>  const ContentScreen()
+                  ));
+            }, child: Text("Go to Content =>"))
             ],
-        ),
-      ),
+        
+
+        ),),
     );
   }
 }
