@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:mytestapp/screen/greeting_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,50 +8,21 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter First Project',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.amber)),
-      home: HomeScreen(),
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('First Time App'),
-        backgroundColor: const Color.fromARGB(255, 167, 173, 178),
-        centerTitle: true,
+      theme: ThemeData(
+        // Added ColorScheme class name here
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.amber),
+        useMaterial3: true,
       ),
-
-      body: ListView.separated(
-        scrollDirection:Axis.vertical,
-        reverse: true,
-        itemCount: 15,
-        itemBuilder: (context,index){
-          return ListTile(
-          leading: Icon(Icons.person_4),
-          subtitle: Text('sdadadadgjfklgifpdok'),
-          title: Text('Item $index'), 
-          trailing: Icon(Icons.add),
-          );
-        },
-        separatorBuilder: (context, index) {
-          return const Divider(
-            indent: 20,
-            endIndent: 20,
-            color: Colors.red,
-          );
-        },
+      home: const GreetingScreen(
+        name: 'Thitisak',
+        bgColor: Colors.pink,
       ),
     );
   }
 }
+
