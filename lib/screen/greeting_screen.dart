@@ -18,6 +18,8 @@ class GreetingScreen extends StatelessWidget {
         child: Column(mainAxisAlignment: MainAxisAlignment.center,
           children: [
            ProfileCard(name: "Thitisak Phanthip",imagePath: 'assets/download.jpg',id: '660710593',),
+           SizedBox(height: 10,),
+           LikeCard(),
             SizedBox(height: 10,),
             ElevatedButton(onPressed: () {
                 Navigator.push(
