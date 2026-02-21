@@ -1,4 +1,5 @@
-import 'package:flutter/material.dart';
+import  'package:flutter/material.dart';
+import 'package:mytestapp/screen/list_user_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -9,15 +10,10 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Grid Layout"),
-        ),
-        body:  Center(
-          child: Text("Hello"),
-        ),
-      ),
+    return const MaterialApp(
+      home: ListUserScreen(),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
+
