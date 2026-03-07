@@ -11,15 +11,15 @@ class _FormExcerszieState extends State<FormExcerszie> {
   final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   String strInput = '';
   // textediting controller
-  final TextEditingController _userController =TextEditingController();
+  final TextEditingController _userNameController =TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
-  
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text(
-        'Simple Forms',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 30,),),
+        'Simple Forms',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold),),
         backgroundColor: Colors.blue,
         centerTitle: true,
       ),
@@ -29,9 +29,11 @@ class _FormExcerszieState extends State<FormExcerszie> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Padding(padding: EdgeInsetsGeometry.only(top: 20)),
-          Text('Display Input : $strInput',style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20)),
+          Text('Display Input : $strInput',),
           SizedBox(height: 10,),
+
           TextFormField(
+            controller: _userNameController,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
               labelText: 'Username'),
@@ -39,7 +41,6 @@ class _FormExcerszieState extends State<FormExcerszie> {
               if (value == null || value.isEmpty) {
                 return 'กรุณากรอกข้อมูล';
               }
-              return null;
             },
             // onChanged: (String value) {
             //   setState(() {
@@ -53,6 +54,7 @@ class _FormExcerszieState extends State<FormExcerszie> {
           Padding(padding: EdgeInsets.only(top: 20)),
           SizedBox(height: 10,),
           TextFormField(
+            controller: _passwordController,
             obscureText: true,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
@@ -61,27 +63,34 @@ class _FormExcerszieState extends State<FormExcerszie> {
               if (value == null || value.isEmpty) {
                 return 'กรุณากรอกข้อมูล';
               }
-              return null;
             },
-            // onChanged: (String value) {
-            //   setState(() {
-            //     strInput = value;
-            //    });
-            // },
+            
             ),
 
             ElevatedButton(onPressed: () {
-              if (_formkey.currentState!.validate()) {
+              if (_formkey.currentState!.validate()) { // validate ผ่าน
                 setState(() {
-                  strInput = 'Form is valid';
+                  strInput =  'Username: ${_userNameController.text} Password : ${_passwordController.text}';
                 });
               }
-              else {
+              else { // validate ไม่ผ่าน
                setState(() {
                  strInput = 'Form is Invalid';
                });
               }
-            }, child: Text('ลงชื่อเข้าใช้'))
+            }, child: Text('ลงชื่อเข้าใช้')),
+            
+            ElevatedButton(onPressed: () {
+              _userNameController.clear();
+              _passwordController.clear();
+
+            }, child: Text('เคลียร์ข้อมูล')),
+
+            ElevatedButton(onPressed: () {
+              setState(() {
+                _userNameController.text = 'Han';
+              });
+            }, child: Text('Auto fill'))
         ],),));
   }
 }

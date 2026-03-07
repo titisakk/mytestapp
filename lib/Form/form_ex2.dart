@@ -8,7 +8,6 @@ class FormEx2 extends StatefulWidget {
 }
 
 class _FormEx2State extends State<FormEx2> {
-  final GlobalKey<FormState> _formkey = GlobalKey<FormState>;
   @override
   Widget build(BuildContext context) {
     return const Placeholder();

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mytestapp/Form/form_excerszie.dart';
+import 'package:mytestapp/screen/profile_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,9 +13,9 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter First Project',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.amber)),
-      home: FormExcerszie(),
+      home: ProfilePage(),
     );
   }
 }
+
 
